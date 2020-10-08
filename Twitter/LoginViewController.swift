@@ -16,7 +16,16 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func onLoginButton(_ sender: Any) {
+        let twitterReqTok = "https://api.twitter.com/oauth/request_token"
+//        https://developer.twitter.com/en/docs/authentication/api-reference/request_token
+        TwitterAPICaller.client?.login(url: twitterReqTok, success: {self.performSegue(withIdentifier: "loginToHome", sender: self)}, failure: { (Error) in
+            print("could not login")
+        })
+    }
+    
+    
+    
     /*
     // MARK: - Navigation
 
