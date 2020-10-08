@@ -12,7 +12,7 @@
         <!--LogInScreen-->
         <scene sceneID="01b-W7-xRa">
             <objects>
-                <viewController title="LogInScreen" id="xar-wP-ZEv" sceneMemberID="viewController">
+                <viewController title="LogInScreen" id="xar-wP-ZEv" customClass="LoginViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SPc-2u-747">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
