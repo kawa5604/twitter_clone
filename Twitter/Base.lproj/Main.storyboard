@@ -28,7 +28,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Login">
-                                    <color key="titleColor" systemColor="systemTealColor"/>
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -37,7 +37,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Plr-Eq-a8C"/>
-                        <color key="backgroundColor" systemColor="systemBlueColor"/>
+                        <color key="backgroundColor" systemColor="systemTealColor"/>
                         <constraints>
                             <constraint firstItem="Dn9-nL-hgg" firstAttribute="centerX" secondItem="SPc-2u-747" secondAttribute="centerX" id="NMw-4h-2UE"/>
                             <constraint firstItem="Dn9-nL-hgg" firstAttribute="centerY" secondItem="SPc-2u-747" secondAttribute="centerY" id="XWu-7d-oEE"/>
@@ -51,10 +51,10 @@
             </objects>
             <point key="canvasLocation" x="-105.79710144927537" y="133.92857142857142"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Home-->
         <scene sceneID="7l1-0k-esB">
             <objects>
-                <tableViewController id="X8B-W1-3k7" sceneMemberID="viewController">
+                <tableViewController id="X8B-W1-3k7" customClass="HomeTableViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="E2h-Se-1zw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -74,7 +74,14 @@
                             <outlet property="delegate" destination="X8B-W1-3k7" id="4BD-Cb-5zy"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="mQ5-9f-Gdg"/>
+                    <navigationItem key="navigationItem" title="Home" id="mQ5-9f-Gdg">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="ssA-r3-0XT">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="onLogout:" destination="X8B-W1-3k7" id="JNo-NM-54n"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kf4-u4-fsA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -87,6 +94,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cvM-cf-WBE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" systemColor="systemTealColor"/>
                     </navigationBar>
                     <connections>
                         <segue destination="X8B-W1-3k7" kind="relationship" relationship="rootViewController" id="DkT-DH-RiB"/>
@@ -100,9 +108,6 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemTealColor">
             <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
