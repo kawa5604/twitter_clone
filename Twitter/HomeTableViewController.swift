@@ -23,6 +23,8 @@ class HomeTableViewController: UITableViewController {
 
     @IBAction func onLogout(_ sender: Any) {
         TwitterAPICaller.client?.logout()
+        //dismiss the screen when loggin out
+        self.dismiss(animated: true, completion: nil)
     }
     // MARK: - Table view data source
 
