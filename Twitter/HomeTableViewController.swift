@@ -61,7 +61,6 @@ class HomeTableViewController: UITableViewController {
         
         cell.usernameLabel.text = user["screen_name"] as? String
         cell.tweetLabel.text = (self.tweetArray[indexPath.row]["text"] as! String)
-        // Image pull
         
         
         return cell
