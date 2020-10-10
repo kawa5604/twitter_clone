@@ -23,4 +23,4 @@ The following features are **TODO**:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='Screen Recording.mov' title='Video Walkthrough' width='' alt='Video Walkthrough' />
