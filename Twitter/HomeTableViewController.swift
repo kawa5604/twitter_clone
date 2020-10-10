@@ -25,6 +25,7 @@ class HomeTableViewController: UITableViewController {
         TwitterAPICaller.client?.logout()
         //dismiss the screen when loggin out
         self.dismiss(animated: true, completion: nil)
+        UserDefaults.standard.set(false, forKey: "userLoggedin")
     }
     // MARK: - Table view data source
 
