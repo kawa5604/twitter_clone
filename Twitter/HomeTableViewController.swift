@@ -17,7 +17,8 @@ class HomeTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        //the function to get the tweets gets called whrn the view loads
+        loadTweet()
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -29,13 +30,18 @@ class HomeTableViewController: UITableViewController {
     func loadTweet(){
         //from the twitter developer API website
         let twitterBaseURL = "https://api.twitter.com/1.1/statuses/home_timeline.json"
-        let twitterParams = ["count": 10]
+        let twitterParams = ["count": 50]
         
         TwitterAPICaller.client?.getDictionariesRequest(url: twitterBaseURL, parameters: twitterParams, success: { (tweets:[NSDictionary]) in
             for tweet in tweets {
+                // self.tweetArray.removeAll()
                 self.tweetArray.append(tweet)
+                //any time we call the API we repopulate the data
+                self.tableView.reloadData()
             }
-        }, failure: <#T##(Error) -> ()#>)
+        }, failure: { (Error) in
+            print("could not retrieve tweet")
+        })
     }
     
     
@@ -48,9 +54,15 @@ class HomeTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tweetCell", for: indexPath) as!  TweetCellTableViewCell
+        // extract the user dict from thje tweet array
+        // user has several vallues and we need to extract name from it
+        let user = self.tweetArray[indexPath.row]["user"] as! NSDictionary
         
-        cell.usernameLabel.text = "some name"
-        cell.tweetLabel.text = "some tweet"
+        
+        cell.usernameLabel.text = user["screen_name"] as? String
+        cell.tweetLabel.text = (self.tweetArray[indexPath.row]["text"] as! String)
+        // Image pull
+        
         
         return cell
     }
@@ -66,7 +78,7 @@ class HomeTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         //depends on how many tweets we are getting
         
-        return 5
+        return tweetArray.count
     }
 
     /*
