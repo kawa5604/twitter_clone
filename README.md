@@ -2,7 +2,7 @@
 
 This is a basic twitter app clone to read tweets.
 
-Time spent: **12** hours spent in total
+Time spent: **13** hours spent in total
 
 ## User Stories
 
@@ -23,4 +23,4 @@ The following features are **TODO**:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='Screen Recording.mov' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://g.recordit.co/kq7MjXGTVA.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
