@@ -56,12 +56,18 @@ class HomeTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tweetCell", for: indexPath) as!  TweetCellTableViewCell
         // extract the user dict from thje tweet array
         // user has several vallues and we need to extract name from it
+        //this user will also hold the profile image
         let user = self.tweetArray[indexPath.row]["user"] as! NSDictionary
         
         
         cell.usernameLabel.text = user["screen_name"] as? String
         cell.tweetLabel.text = (self.tweetArray[indexPath.row]["text"] as! String)
         
+        let imageURL = URL(string: (user["profile_image_url_https"] as? String)!)
+        let data = try? Data(contentsOf: imageURL!)
+        if let imageData = data {
+            cell.profileImage.image = UIImage(data: imageData)
+        }
         
         return cell
     }
