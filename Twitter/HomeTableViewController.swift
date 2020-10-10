@@ -10,6 +10,11 @@ import UIKit
 
 class HomeTableViewController: UITableViewController {
 
+    
+    //tweet array
+    var tweetArray = [NSDictionary]()
+    var numberOfTweet: Int!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,7 +25,20 @@ class HomeTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-
+    // function to pull the tweets from the API
+    func loadTweet(){
+        //from the twitter developer API website
+        let twitterBaseURL = "https://api.twitter.com/1.1/statuses/home_timeline.json"
+        let twitterParams = ["count": 10]
+        
+        TwitterAPICaller.client?.getDictionariesRequest(url: twitterBaseURL, parameters: twitterParams, success: { (tweets:[NSDictionary]) in
+            for tweet in tweets {
+                self.tweetArray.append(tweet)
+            }
+        }, failure: <#T##(Error) -> ()#>)
+    }
+    
+    
     @IBAction func onLogout(_ sender: Any) {
         TwitterAPICaller.client?.logout()
         //dismiss the screen when loggin out
@@ -29,7 +47,10 @@ class HomeTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "tweetCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "tweetCell", for: indexPath) as!  TweetCellTableViewCell
+        
+        cell.usernameLabel.text = "some name"
+        cell.tweetLabel.text = "some tweet"
         
         return cell
     }
