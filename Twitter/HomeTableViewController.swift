@@ -36,11 +36,11 @@ class HomeTableViewController: UITableViewController {
     @objc func loadTweet(){
         //from the twitter developer API website
         let twitterBaseURL = "https://api.twitter.com/1.1/statuses/home_timeline.json"
-        let twitterParams = ["count": 50]
+        let twitterParams = ["count": 10]
         
         TwitterAPICaller.client?.getDictionariesRequest(url: twitterBaseURL, parameters: twitterParams, success: { (tweets:[NSDictionary]) in
             for tweet in tweets {
-                // self.tweetArray.removeAll()
+                self.tweetArray.removeAll()
                 self.tweetArray.append(tweet)
                 //any time we call the API we repopulate the data
                 self.tableView.reloadData()
