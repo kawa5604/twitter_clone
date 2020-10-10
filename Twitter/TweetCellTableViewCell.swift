@@ -8,12 +8,12 @@
 
 import UIKit
 
-//COmponents
-
-
+//COmponents dragged from the cell
 
 class TweetCellTableViewCell: UITableViewCell {
-
+    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var tweetLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

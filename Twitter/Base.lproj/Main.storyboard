@@ -113,6 +113,11 @@
                                         <constraint firstItem="EGS-d9-1fl" firstAttribute="top" secondItem="yXy-G7-3VN" secondAttribute="topMargin" id="tWd-Zb-HjF"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="profileImage" destination="BOk-FJ-cjI" id="Zgc-OK-4SD"/>
+                                    <outlet property="tweetLabel" destination="mRR-rd-irT" id="IcN-kd-lSa"/>
+                                    <outlet property="usernameLabel" destination="EGS-d9-1fl" id="efY-BT-y6N"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -131,7 +136,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kf4-u4-fsA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1544.9275362318842" y="133.92857142857142"/>
+            <point key="canvasLocation" x="1564" y="134"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="GSa-iy-fJL">
