@@ -15,10 +15,16 @@ class HomeTableViewController: UITableViewController {
     var tweetArray = [NSDictionary]()
     var numberOfTweet: Int!
     
+    // Refresh controller instance
+    let myRefreshController = UIRefreshControl()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //the function to get the tweets gets called whrn the view loads
         loadTweet()
+        // Std refresh coontroller will call the function to reload tweets
+        myRefreshController.addTarget(self, action: #selector(loadTweet), for: .valueChanged)
+        tableView.refreshControl = myRefreshController
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -27,7 +33,7 @@ class HomeTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     // function to pull the tweets from the API
-    func loadTweet(){
+    @objc func loadTweet(){
         //from the twitter developer API website
         let twitterBaseURL = "https://api.twitter.com/1.1/statuses/home_timeline.json"
         let twitterParams = ["count": 50]
@@ -38,6 +44,8 @@ class HomeTableViewController: UITableViewController {
                 self.tweetArray.append(tweet)
                 //any time we call the API we repopulate the data
                 self.tableView.reloadData()
+                //when the table gets updated you stop the refreshing
+                self.myRefreshController.endRefreshing()
             }
         }, failure: { (Error) in
             print("could not retrieve tweet")
