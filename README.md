@@ -12,7 +12,7 @@ This is a basic twitter app clone to read tweets.
 - [x] User can view tweets with the user profile picture, username, and tweet text. 
 - [x] User can pull to refresh.
 
-##**TODO**:
+## **TODO**:
 
 - [ ] User can load past tweets infinitely. 
 - [ ] Publish Tweets
