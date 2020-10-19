@@ -30,3 +30,6 @@ Here's a walkthrough of implemented user stories:
 <img src='http://g.recordit.co/kq7MjXGTVA.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 <img src='https://recordit.co/XS1jXxajqj.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+<img src='Simulator Screen Shot - iPhone 11 Pro - 2020-10-18 at 23.46.30.png' title='ScreenShot like - retweet ' width='' alt='Screenshot' />
+
