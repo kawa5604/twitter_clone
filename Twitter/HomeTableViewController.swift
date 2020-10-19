@@ -83,7 +83,7 @@ class HomeTableViewController: UITableViewController {
                 self.myRefreshController.endRefreshing()
                 
             }, failure: { (Error) in
-                print("Could not retreive tweets :(")
+                print("Could not load tweets")
             })
         }
     
@@ -120,7 +120,7 @@ class HomeTableViewController: UITableViewController {
         //retweet and like
         cell.setFavorite(tweetArray[indexPath.row]["favorited"] as! Bool)
         cell.tweetId = tweetArray[indexPath.row]["id"] as! Int
-        
+        cell.setRetweet(tweetArray[indexPath.row]["retweeted"] as! Bool)
         return cell
     }
     // MARK: - Table view data source
