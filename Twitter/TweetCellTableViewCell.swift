@@ -26,14 +26,12 @@ class TweetCellTableViewCell: UITableViewCell {
                if(tobeFavorited){
                    TwitterAPICaller.client?.favoriteTweet(tweetId: tweetId, success: {
                        self.setFavorite(true)
-//                       self.favLabel.text = String(Int(self.favLabel.text!)!+1)
                    }, failure: { (error) in
                        print("Favorite failed \(error)")
                    })
                }else{
                    TwitterAPICaller.client?.unfavoriteTweet(tweetId: tweetId, success: {
                        self.setFavorite(false)
-//                       self.favLabel.text = String(Int(self.favLabel.text!)!-1)
 
                    }, failure: { (error) in
                        print("Unfavorite failed \(error)")
@@ -42,6 +40,14 @@ class TweetCellTableViewCell: UITableViewCell {
     }
     
     @IBAction func retweet(_ sender: Any) {
+        
+            TwitterAPICaller.client?.retweet(tweetId: tweetId, success: {
+                self.setRetweet(true)
+
+
+            }, failure: { (error) in
+                print("Retweet failed \(error)")
+            })
         
     }
     
