@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+  
 class HomeTableViewController: UITableViewController {
 
     
@@ -32,11 +32,17 @@ class HomeTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.loadTweet()
+    }
     // function to pull the tweets from the API
     @objc func loadTweet(){
         //from the twitter developer API website
         let twitterBaseURL = "https://api.twitter.com/1.1/statuses/home_timeline.json"
-        let twitterParams = ["count": 10]
+        let twitterParams = ["count": 50]
         
         TwitterAPICaller.client?.getDictionariesRequest(url: twitterBaseURL, parameters: twitterParams, success: { (tweets:[NSDictionary]) in
             for tweet in tweets {
