@@ -42,20 +42,23 @@ class HomeTableViewController: UITableViewController {
     }
     // function to pull the tweets from the API
     @objc func loadTweet(){
-        numberOfTweet = 50
+        numberOfTweet = 10
         //from the twitter developer API website
         let twitterBaseURL = "https://api.twitter.com/1.1/statuses/home_timeline.json"
         let twitterParams = ["count": numberOfTweet]
         
         TwitterAPICaller.client?.getDictionariesRequest(url: twitterBaseURL, parameters: twitterParams as [String : Any], success: { (tweets:[NSDictionary]) in
             for tweet in tweets {
-                self.tweetArray.removeAll()
+//                self.tweetArray.removeAll()
                 self.tweetArray.append(tweet)
-                //any time we call the API we repopulate the data
-                self.tableView.reloadData()
-                //when the table gets updated you stop the refreshing
-                self.myRefreshController.endRefreshing()
+
             }
+            
+            //any time we call the API we repopulate the data
+            self.tableView.reloadData()
+            //when the table gets updated you stop the refreshing
+            self.myRefreshController.endRefreshing()
+            
         }, failure: { (Error) in
             print("could not retrieve tweets here")
         })
@@ -88,7 +91,7 @@ class HomeTableViewController: UITableViewController {
         }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row + 1 == tweetArray.count{
+        if indexPath.row + 1 == tweetArray.count {
             loadMoreTweets()
         }
     }
