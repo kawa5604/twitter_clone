@@ -15,10 +15,10 @@ This is a basic twitter app clone to read tweets.
 - [x] User can favorite a tweet
 - [x] user can retweet 
 - [x] Publish Tweets
+- [x] User can load past tweets infinitely. 
 
 ## **TODO**:
 
-- [ ] User can load past tweets infinitely. 
 - [ ] When composing a tweet, user sees a countdown for the number of characters remaining for the tweet (out of 280)
 - [ ] User can view their profile in a profile tab.
 - [ ] User sees embedded images in tweet if available.
